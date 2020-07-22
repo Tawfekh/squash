@@ -16,7 +16,7 @@ diamond <- function(x, y = NULL, radius, ...) {
   n <- length(xL)
   x2 <- rbind(rep.int(NA, n), xC, xL, xC, xR)[-1]
   y2 <- rbind(rep.int(NA, n), yB, yC, yT, yC)[-1]
-  polygon(x2, y2, ...)
+  polygon(x2, y2,border=0, ...)
 }        
 
 
@@ -51,7 +51,7 @@ trianglegram <- function(x, labels = rownames(x),
     plot(xlim, ylim, type = 'n', 
       axes = FALSE, xlab = '', ylab = '', ...)
   }
-  diamond(x2, y2, radius = 0.5, col = x[wh],border=border)
+  diamond(x2, y2, radius = 0.5, border=0,col = x[wh])
   if(diag) offset <- 0.5 else offset <- 0
   if(right) {
     text(0, 1:n, labels = labels, pos = 2, offset = offset, xpd = NA)
