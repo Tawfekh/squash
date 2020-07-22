@@ -22,7 +22,7 @@ diamond <- function(x, y = NULL, radius, ...) {
 
 trianglegram <- function(x, labels = rownames(x), 
     lower = TRUE, diag = FALSE, right = FALSE, 
-    add = FALSE, xpos = 0, ypos = 0, xlim, ylim, ...) {
+    add = FALSE, xpos = 0, ypos = 0, xlim, ylim,border=0, ...) {
   if(nrow(x) != ncol(x))
     stop("x must be a square matrix")
   n <- nrow(x)
@@ -51,7 +51,7 @@ trianglegram <- function(x, labels = rownames(x),
     plot(xlim, ylim, type = 'n', 
       axes = FALSE, xlab = '', ylab = '', ...)
   }
-  diamond(x2, y2, radius = 0.5, col = x[wh])
+  diamond(x2, y2, radius = 0.5, col = x[wh],border=border)
   if(diag) offset <- 0.5 else offset <- 0
   if(right) {
     text(0, 1:n, labels = labels, pos = 2, offset = offset, xpd = NA)
